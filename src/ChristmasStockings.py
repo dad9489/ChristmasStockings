@@ -154,7 +154,11 @@ def main():
 
     for person in people:
         print("Sending to "+person+" to buy for "+assignment[person])
-        send_email(people[person],assignment[person],person)
-        print('Sent assignment to '+people[person])
+        try:
+            send_email(people[person],assignment[person],person)
+            print('Sent assignment to '+people[person])
+        except:
+            print('An error occurred when trying to send the email. '
+                  'Check to make sure you are connected to the internet.')
 
 main()
